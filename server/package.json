@@ -37,6 +37,8 @@
     "express": "^4.17.1",
     "express-winston": "^4.0.5",
     "helmet": "^4.4.1",
+    "pg": "^8.5.1",
+    "typeorm": "^0.2.30",
     "winston": "^3.3.3"
   }
 }

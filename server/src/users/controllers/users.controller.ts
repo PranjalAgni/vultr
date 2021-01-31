@@ -15,7 +15,7 @@ class UsersController {
   }
 
   async listUsers(req: express.Request, res: express.Response) {
-    const users = await usersService.list(100, 0);
+    const users = await usersService.create();
     res.status(200).send(users);
   }
 }

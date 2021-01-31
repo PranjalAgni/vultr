@@ -6,12 +6,14 @@ import helmet from "helmet";
 import { UsersRoutes } from "./users/users.config.routes";
 import { CommonRoutesConfig } from "./common/common.routes.config";
 import debug from "debug";
+import { createConnection } from "typeorm";
 
-const initalizeApp = (): express.Application => {
+const initalizeApp = async (): Promise<express.Application> => {
   const app: express.Application = express();
   const routes: Array<CommonRoutesConfig> = [];
   const debugLog: debug.IDebugger = debug("server:app");
 
+  await createConnection();
   app.use(cors());
   app.use(helmet());
   app.use(express.json());
