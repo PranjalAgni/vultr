@@ -1,16 +1,17 @@
+import debug from "debug";
 import "reflect-metadata";
 import initalizeApp from "./app";
-import debug from "debug";
-import dotenv from "dotenv";
+import config from "./config";
 
 const startServer = async () => {
-  dotenv.config();
   const debugLog: debug.IDebugger = debug("server");
 
   const app = await initalizeApp();
 
   app.listen(3000, () => {
-    debugLog(`Server running at http://localhost:${process.env.PORT}`);
+    debugLog(
+      `Server running at http://localhost:${config.port} in ${config.env} mode`
+    );
   });
 };
 
