@@ -8,7 +8,7 @@ const startServer = async () => {
 
   const app = await initalizeApp();
 
-  app.listen(3000, () => {
+  app.listen(config.port, () => {
     debugLog(
       `Server running at http://localhost:${config.port} in ${config.env} mode`
     );

@@ -1,6 +1,6 @@
-import { User } from "../../entity/User";
 import { CRUD } from "../../common/interfaces/crud.interface";
 import usersDao from "../daos/users.dao";
+import { UsersDto } from "../dto/users.dto";
 
 class UsersService implements CRUD {
   updateById: (resourceId: unknown) => Promise<unknown>;
@@ -24,7 +24,11 @@ class UsersService implements CRUD {
   }
 
   async create() {
-    return await usersDao.addUser();
+    const userData: UsersDto = {
+      email: "hello.hey@world.com",
+      password: "some_password_super_secret"
+    };
+    return await usersDao.addUser(userData);
   }
 }
 
