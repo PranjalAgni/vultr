@@ -6,7 +6,7 @@ import logo from './logo.svg';
 import { RootState } from './store/configureStore';
 
 function App() {
-  const notes = useSelector((state: RootState) => state.notes);
+  const notes = useSelector((state: RootState) => state.notes.notes);
 
   const [noteValue, setNoteValue] = useState('');
   const dispatch = useDispatch();
